@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz testowy</title>
+</head>
+<body>
+    <h1>Prosty formularz</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Wyślij</button>
+    </form>
+
+    {% if submitted_data %}
+        <h2>Odebrane dane:</h2>
+        <p><strong>Imię:</strong> {{ submitted_data.name }}</p>
+        <p><strong>Wiadomość:</strong> {{ submitted_data.message }}</p>
+    {% endif %}
+</body>
+</html>
