@@ -5,13 +5,12 @@ class Patient(models.Model):
     SEX_CHOICES = [
         ("F", "Female"),
         ("M", "Male"),
-        ("O", "Other"),
     ]
 
     name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
     age = models.PositiveIntegerField()
-    sex = models.CharField(max_length=1, choices=SEX_CHOICES)
+    gender = models.CharField(max_length=1, choices=SEX_CHOICES)
     weight = models.DecimalField(max_digits=5, decimal_places=2)
     height = models.DecimalField(max_digits=5, decimal_places=2)
 
@@ -46,6 +45,7 @@ class ClinicalTrial(models.Model):
 
     name = models.CharField(max_length=200)
     phase = models.CharField(max_length=10, choices=PHASE_CHOICES)
+    category = models.CharField(max_length=200)
     beginning_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES)
@@ -55,15 +55,9 @@ class ClinicalTrial(models.Model):
 
 
 class SideEffect(models.Model):
-    CATEGORY_CHOICES = [
-        ("mild", "Mild"),
-        ("moderate", "Moderate"),
-        ("severe", "Severe"),
-        ("other", "Other"),
-    ]
-
+    
     name = models.CharField(max_length=200)
-    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
+    category = models.CharField(max_length=50)
     description = models.TextField(blank=True)
 
     def __str__(self):

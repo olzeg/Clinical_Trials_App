@@ -1,0 +1,89 @@
+id,name,category,description
+1,Nausea,Gastrointestinal,"Sensation of queasiness or urge to vomit, commonly occurring within hours of drug administration"
+2,Vomiting,Gastrointestinal,"Forceful expulsion of gastric contents through the mouth, often accompanied by abdominal discomfort"
+3,Diarrhea,Gastrointestinal,"Abnormally frequent and loose bowel movements, potentially leading to dehydration if severe"
+4,Constipation,Gastrointestinal,"Infrequent or difficult bowel movements with hard, dry stool consistency"
+5,Abdominal Pain,Gastrointestinal,Discomfort or cramping in the abdominal region ranging from mild to severe
+6,Dyspepsia,Gastrointestinal,"Indigestion characterized by upper abdominal discomfort, bloating, and belching"
+7,Gastroesophageal Reflux,Gastrointestinal,Backward flow of gastric acid into the esophagus causing heartburn and irritation
+8,Appetite Suppression,Gastrointestinal,"Decreased desire to eat and reduced intake of food, potentially leading to weight loss"
+9,Mucositis,Gastrointestinal,Inflammation of the mucous membranes lining the gastrointestinal tract causing ulcerations and pain
+10,Headache,Neurological,"Pain or discomfort in the head region, ranging from mild tension-type to severe migraine"
+11,Dizziness,Neurological,"Sensation of spinning or loss of balance, often accompanied by lightheadedness"
+12,Tremor,Neurological,"Involuntary shaking or oscillation of body parts, commonly affecting hands"
+13,Peripheral Neuropathy,Neurological,"Damage to peripheral nerves causing numbness, tingling, and weakness in extremities"
+14,Seizure,Neurological,"Abnormal electrical activity in the brain causing convulsions, loss of consciousness, or altered awareness"
+15,Insomnia,Neurological,"Persistent difficulty falling asleep or maintaining sleep, resulting in daytime fatigue"
+16,Somnolence,Neurological,Excessive daytime sleepiness and difficulty staying awake during normal activities
+17,Cognitive Impairment,Neurological,"Reduced mental clarity, concentration difficulty, or memory problems affecting cognitive function"
+18,Anxiety,Neurological,"Excessive worry, nervousness, or sense of impending doom without identifiable cause"
+19,Depression,Neurological,"Persistent mood disturbance characterized by sadness, loss of interest, and hopelessness"
+20,Hypertension,Cardiovascular,"Persistent elevation of blood pressure above normal levels, potentially increasing cardiovascular risk"
+21,Hypotension,Cardiovascular,"Abnormally low blood pressure causing dizziness, syncope, or inadequate organ perfusion"
+22,Tachycardia,Cardiovascular,Elevated resting heart rate above 100 beats per minute at rest
+23,Bradycardia,Cardiovascular,Abnormally slow heart rate below 60 beats per minute at rest
+24,Arrhythmia,Cardiovascular,"Irregular heart rhythm including premature beats, atrial fibrillation, or other conduction abnormalities"
+25,Chest Pain,Cardiovascular,"Discomfort or pressure in the chest, potentially indicative of cardiac ischemia"
+26,Palpitations,Cardiovascular,Subjective awareness of forceful or rapid heart beating sensations
+27,Myocardial Infarction,Cardiovascular,"Acute necrosis of myocardial tissue due to coronary artery occlusion, a life-threatening condition"
+28,Congestive Heart Failure,Cardiovascular,"Inability of the heart to pump sufficient blood, causing fluid accumulation and dyspnea"
+29,QT Prolongation,Cardiovascular,"Lengthening of the QT interval on electrocardiogram, increasing risk of dangerous arrhythmias"
+30,Rash,Dermatological,Localized or diffuse erythematous skin eruption with itching or discomfort
+31,Pruritus,Dermatological,"Intense itching sensation of the skin, often without visible primary lesions"
+32,Urticaria,Dermatological,"Raised, erythematous wheals on the skin accompanied by severe itching"
+33,Photosensitivity,Dermatological,Exaggerated skin reaction to ultraviolet radiation causing erythema and burning
+34,Alopecia,Dermatological,"Partial or complete hair loss affecting the scalp or body, often reversible"
+35,Dry Skin,Dermatological,"Reduction in skin hydration causing xerosis, flaking, and potential irritation"
+36,Stevens-Johnson Syndrome,Dermatological,"Severe mucocutaneous reaction with widespread blistering, epidermal necrosis, and systemic involvement"
+37,Toxic Epidermal Necrolysis,Dermatological,Life-threatening widespread skin and mucous membrane necrosis with risk of sepsis and multiorgan failure
+38,Erythema Multiforme,Dermatological,Immunologic skin reaction with characteristic target lesions and potential mucosal involvement
+39,Acne,Dermatological,"Follicular plugging and inflammation resulting in comedones, papules, and pustules"
+40,Myalgia,Musculoskeletal,Muscle pain and tenderness often affecting multiple muscle groups
+41,Arthralgia,Musculoskeletal,"Joint pain and discomfort without swelling, potentially affecting mobility"
+42,Arthritis,Musculoskeletal,"Joint inflammation with pain, swelling, stiffness, and potentially reduced range of motion"
+43,Muscle Weakness,Musculoskeletal,Reduced muscle strength and power affecting physical function and endurance
+44,Cramping,Musculoskeletal,"Involuntary sustained muscle contraction causing pain, typically in legs"
+45,Back Pain,Musculoskeletal,"Pain in the lower or upper back region, ranging from mild discomfort to severe debilitation"
+46,Rhabdomyolysis,Musculoskeletal,"Breakdown of muscle tissue releasing myoglobin into circulation, potentially causing acute kidney injury"
+47,Osteoporosis,Musculoskeletal,Decreased bone mineral density and deterioration of bone microarchitecture increasing fracture risk
+48,Neutropenia,Hematological,"Abnormally low neutrophil count below 1,500 cells/μL, significantly increasing infection risk"
+49,Anemia,Hematological,"Reduction in red blood cell count or hemoglobin, causing fatigue and dyspnea"
+50,Thrombocytopenia,Hematological,"Low platelet count below 150,000/μL, increasing risk of bleeding and bruising"
+51,Leukopenia,Hematological,"Reduction in white blood cell count below 4,500 cells/μL, compromising immune function"
+52,Lymphopenia,Hematological,"Decreased lymphocyte count below 1,000 cells/μL, impairing cell-mediated and humoral immunity"
+53,Hemolytic Anemia,Hematological,Increased red blood cell destruction exceeding bone marrow production capacity
+54,Coagulopathy,Hematological,Abnormality in blood clotting cascade resulting in increased bleeding tendency or thrombosis
+55,Hepatotoxicity,Hepatic,"Drug-induced liver injury with elevated transaminases, potential progression to hepatic failure"
+56,Elevated Liver Enzymes,Hepatic,Increased serum aspartate aminotransferase (AST) or alanine aminotransferase (ALT) levels
+57,Cholestasis,Hepatic,Impaired bile flow resulting in elevated alkaline phosphatase and bilirubin levels
+58,Jaundice,Hepatic,Yellow discoloration of skin and sclera due to elevated serum bilirubin from liver dysfunction
+59,Hepatic Cirrhosis,Hepatic,Chronic liver damage with fibrosis and eventual loss of hepatic function
+60,Fulminant Hepatic Failure,Hepatic,Acute massive hepatic necrosis with rapid loss of synthetic function and coagulopathy
+61,Steatosis,Hepatic,"Abnormal fat accumulation in hepatocytes, potentially progressing to fatty liver disease"
+62,Dyspnea,Respiratory,"Shortness of breath with sensation of air hunger, ranging from mild to severe"
+63,Cough,Respiratory,"Involuntary expulsion of air with audible sound, dry or productive"
+64,Bronchospasm,Respiratory,Acute constriction of bronchial airways causing wheezing and respiratory distress
+65,Pulmonary Fibrosis,Respiratory,Progressive lung tissue scarring with decreased compliance and restrictive lung disease
+66,Acute Respiratory Distress Syndrome,Respiratory,Severe diffuse lung inflammation with pulmonary edema and respiratory failure
+67,Pneumonitis,Respiratory,"Inflammatory reaction in lung parenchyma causing cough, dyspnea, and hypoxemia"
+68,Pulmonary Embolism,Respiratory,"Obstruction of pulmonary artery by thromboembolus, potentially life-threatening"
+69,Wheezing,Respiratory,High-pitched breathing sounds indicating airway narrowing or obstruction
+70,Anaphylaxis,Immunological,"Acute severe allergic reaction with hypotension, bronchospasm, and potential cardiovascular collapse"
+71,Angioedema,Immunological,Acute localized swelling of deep skin layers and mucous membranes potentially involving airway
+72,Hypersensitivity Reaction,Immunological,"Exaggerated immune response to drug including fever, rash, and systemic symptoms"
+73,Drug Reaction with Eosinophilia and Systemic Symptoms,Immunological,"Severe hypersensitivity reaction with rash, fever, eosinophilia, and lymphadenopathy"
+74,Autoimmune Hemolytic Anemia,Immunological,Antibody-mediated destruction of red blood cells causing hemolysis and anemia
+75,Immune Thrombocytopenia,Immunological,Immune-mediated platelet destruction resulting in thrombocytopenia and bleeding
+76,Systemic Lupus Erythematosus,Immunological,Drug-induced autoimmune disease with antibody formation against cellular components
+77,Fatigue,General/Systemic,Persistent lack of energy and tiredness affecting daily functioning and quality of life
+78,Fever,General/Systemic,"Elevation of body temperature above 38°C, potentially indicating infection or inflammatory response"
+79,Chills,General/Systemic,Sensation of coldness with involuntary muscle contractions often accompanying fever
+80,Night Sweats,General/Systemic,Profuse sweating during sleep causing significant disruption to rest
+81,Weight Loss,General/Systemic,Unintended reduction in body weight due to decreased intake or increased metabolism
+82,Weight Gain,General/Systemic,Increased body weight potentially due to fluid retention or metabolic effects
+83,Edema,General/Systemic,"Fluid accumulation in tissue spaces causing swelling, localized or generalized"
+84,Sepsis,General/Systemic,Life-threatening systemic inflammatory response to infection with potential organ dysfunction
+85,Infection,General/Systemic,"Bacterial, viral, or fungal infection potentially serious in immunocompromised patients"
+86,Acute Kidney Injury,General/Systemic,Rapid decline in renal function with elevated creatinine and oliguria or anuria
+87,Hyperkalemia,General/Systemic,Elevated serum potassium potentially causing cardiac arrhythmias and neuromuscular dysfunction
+88,Hyponatremia,General/Systemic,"Low serum sodium concentration potentially causing confusion, seizures, and cerebral edema"

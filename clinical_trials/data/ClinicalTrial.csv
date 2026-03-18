@@ -1,0 +1,61 @@
+id,name,phase,category,beginning_date,end_date,status
+1,KEYNOTE-189,II,Non-Small Cell Lung Cancer,2023-09-07,,ongoing
+2,CHECKMATE-067,II,Melanoma,2022-05-04,2024-06-20,completed
+3,APOLLO-45,III,Non-Small Cell Lung Cancer,2022-09-08,,ongoing
+4,PARADIGM-HF,II,Chronic Heart Failure,2023-05-26,2024-05-24,terminated
+5,CANVAS-R,III,Type 2 Diabetes Mellitus,2022-11-08,2024-03-11,completed
+6,ASTRAL-HF,IV,Hypertension,2022-08-02,2024-07-22,completed
+7,NEURON-360,III,Alzheimer's Disease,2023-08-31,,ongoing
+8,DURVA-IMMUNIZE,III,Atrial Fibrillation,2023-09-28,2024-09-29,suspended
+9,BREATHE-LIFT,II,Chronic Obstructive Pulmonary Disease,2022-01-05,,ongoing
+10,VEDOLIN-PRIME,IV,Crohn's Disease,2022-03-02,,ongoing
+11,RESCUE-VIRAL,III,COVID-19,2023-03-06,,ongoing
+12,LYMPHO-BLAST,II,Diffuse Large B-Cell Lymphoma,2024-01-18,,ongoing
+13,TOCIL-ANTI-IX,II,Rheumatoid Arthritis,2022-01-30,2024-07-21,completed
+14,METABOLIC-FORWARD,III,Type 2 Diabetes Mellitus,2022-11-29,,ongoing
+15,RESPIRE-DUAL,II,Chronic Obstructive Pulmonary Disease,2022-01-03,2024-07-20,completed
+16,INFLUX-BIO,II,Rheumatoid Arthritis,2022-03-17,2024-09-11,completed
+17,ANTIVIR-COMBO-88,II,Influenza,2020-05-25,2024-04-27,completed
+18,CARDIAC-SYNC,III,Acute Coronary Syndrome,2022-06-27,2023-11-13,suspended
+19,NEURO-SHIELD-2,III,Amyotrophic Lateral Sclerosis,2025-05-20,,planned
+20,ANAKIRA-IMMUNE,I,Gout,2022-01-25,2023-12-17,suspended
+21,ENDOCARE-PLUS,III,Type 2 Diabetes Mellitus,2022-05-15,2024-04-04,completed
+22,OMALI-BREATH,III,Severe Asthma,2025-04-25,,planned
+23,GI-PROTECT-X,II,Ulcerative Colitis,2023-01-02,,ongoing
+24,DAPTO-RESISTANCE,III,Complicated Skin and Soft Tissue Infection,2021-11-06,2024-05-15,completed
+25,ONCO-PRIME-360,I,Squamous Cell Carcinoma of the Head and Neck,2022-05-05,2023-08-25,suspended
+26,SUSTAIN-HEART,II,Chronic Heart Failure,2020-08-25,2024-08-21,completed
+27,MOBILE-MS,IV,Multiple Sclerosis,2023-08-19,,ongoing
+28,BELI-IMMUNE-55,III,Systemic Lupus Erythematosus,2023-01-23,,ongoing
+29,LIPID-SILENCE,II,Familial Hypercholesterolemia,2023-10-30,,ongoing
+30,RESLIZ-ASTHMA,III,Severe Eosinophilic Asthma,2024-01-23,,ongoing
+31,USTEKI-IBD,II,Psoriasis,2023-10-29,2024-02-01,terminated
+32,ZIDO-RESIST,II,Drug-Resistant Tuberculosis,2022-08-05,2024-05-09,terminated
+33,CETUX-SOLID,I,Colorectal Cancer,2021-02-09,2024-10-30,suspended
+34,RHYTHM-CONTROL-9,III,Atrial Fibrillation,2022-08-09,,ongoing
+35,MOVEMENT-RESTORE,II,Parkinson's Disease,2025-03-16,,planned
+36,AUTOIMMUNE-AZA,III,Systemic Lupus Erythematosus,2021-05-12,2024-10-01,completed
+37,THYROID-BALANCE,III,Hypothyroidism,2022-06-04,2024-09-25,completed
+38,PULMON-FIBROSIS,III,Idiopathic Pulmonary Fibrosis,2023-04-01,,ongoing
+39,BISMUTH-PLUS,IV,Helicobacter pylori Infection,2021-09-29,2024-10-02,completed
+40,ANTIFUNG-BROAD,II,Invasive Aspergillosis,2023-06-15,2024-05-26,suspended
+41,SUNITINIB-TARGETED,II,Renal Cell Carcinoma,2023-03-09,,ongoing
+42,CARDIAC-RHYTHM-X,II,Heart Failure with Reduced Ejection Fraction,2020-10-03,2024-08-22,completed
+43,PARKINSON-TRIPLE,III,Parkinson's Disease,2022-03-09,2024-01-14,completed
+44,MYCO-IMMUNOSUP,II,Lupus Nephritis,2025-03-20,,planned
+45,FINERENONE-CKD,IV,Chronic Kidney Disease,2025-03-24,,planned
+46,FORMOTEROL-ASTHMA,II,Moderate Persistent Asthma,2025-03-22,,planned
+47,CELIAC-GATE,III,Celiac Disease,2023-04-05,2023-08-14,terminated
+48,TUBERCULO-COMBO,IV,Tuberculosis,2022-05-16,,ongoing
+49,BREN-LYMPHOMA,III,Hodgkin Lymphoma,2022-07-05,,ongoing
+50,PLATELET-SHIELD,I,Secondary Prevention After Myocardial Infarction,2020-01-07,2024-10-31,completed
+51,AZURE-CANCER-12,III,Head and Neck Squamous Cell Carcinoma,2025-01-01,,planned
+52,HEART-PROTECT-IV,II,Essential Hypertension,2021-11-11,2024-09-02,completed
+53,COGNITION-ENHANCE,II,Mild to Moderate Alzheimer's Disease,2020-12-11,2024-06-24,completed
+54,TAFAST-B-CELL,IV,Follicular Lymphoma,2024-01-21,,ongoing
+55,RESLIZ-EOSIN,III,Eosinophilic Granulomatosis with Polyangiitis,2021-07-02,2023-07-02,terminated
+56,INFLAM-RESOLVE,IV,Ankylosing Spondylitis,2023-07-19,,ongoing
+57,VIRAL-DEFEND-PRO,II,Respiratory Syncytial Virus Infection,2022-09-24,,ongoing
+58,IMMUNE-ADVANCE,III,Triple-Negative Breast Cancer,2025-05-01,,planned
+59,KEYNOTE-842,IV,Esophageal Cancer,2021-03-01,2024-03-09,completed
+60,BEACON-156,III,Chronic Obstructive Pulmonary Disease,2025-02-10,,planned

@@ -1,0 +1,51 @@
+id,name,active_agent,producer
+1,Oncorev,tafasitamab,Veritas Oncology Labs
+2,Cardiostat,valsartan-amlodipine,Coronary Pharmaceuticals
+3,Neuralign,lecanemab-modified,Neuraxis Therapeutics
+4,Immunex,durvalumab,ImmunoGen Solutions
+5,Glucostat,empagliflozin-metformin,Endocrine Innovations
+6,Respimune,roflumilast,Pulmonary Therapeutics Inc
+7,Gastrex,vedolizumab,GastroHealth Pharma
+8,Antivirex,remdesivir-derivative,Infectious Disease Partners
+9,Tumorscan,nivolumab-ipilimumab,OncoDynamics
+10,Hypertenz,azilsartan-hydrochlorothiazide,Cardiac Convergence
+11,Cognition,donepezil-memantine,NeuroPath Sciences
+12,Celurex,tocilizumab,Immunotherapy Dynamics
+13,Insulinex,degludec-liraglutide,Metabolic Pharma Group
+14,Bronchiex,tiotropium-glycopyrronium,Respiratory Solutions
+15,Inflam-X,infliximab-biosimilar,GI Therapeutics
+16,Viralstop,favipiravir-ribavirin,Antiinfective Research
+17,Carcinex,atezolizumab,OncoAdvanc Pharmaceuticals
+18,Arterioguard,ticagrelor-atorvastatin,Vascular Therapeutics
+19,Synaptixx,riluzole-edaravone,Neural Innovations
+20,Cytokrem,anakinra,Immunomodulation Labs
+21,Metabolox,sitagliptin-saxagliptin,Endocrine Solutions
+22,Pneumacare,omalizumab,Airway Pharmaceuticals
+23,Intestinex,mesalamine-budesonide,Gastrointestinal Health
+24,Septicore,daptomycin,Infection Control Inc
+25,Metastat,pembrolizumab,Oncology Precision Group
+26,Fibroscan,sacubitril-valsartan,Heart Failure Solutions
+27,Neurosynth,fampridine,Neurodegenerative Therapies
+28,Autoimmune-X,belimumab,Immunetech Pharma
+29,Lipidex,inclisiran,Cholesterol Therapeutics
+30,Asthmacare,reslizumab,Allergy & Asthma Labs
+31,Colonex,ustekinumab,Inflammatory Bowel Therapeutics
+32,Bacteriax,linezolid-tedizolid,Resistant Infection Labs
+33,Radiotune,cetuximab,Targeted Oncology
+34,Arrhythmex,flecainide-propafenone,Cardiac Rhythm Solutions
+35,Tremorsol,trihexyphenidyl-amantadine,Movement Disorders Inc
+36,Autoguard,azathioprine,Autoimmune Defense
+37,Thyrostat,levothyroxine-liothyronine,Thyroid Endocrine
+38,Fibrosyss,nintedanib,Pulmonary Fibrosis Research
+39,Pyloriex,bismuth-clarithromycin,Gastric Infection Solutions
+40,Fungicide-Plus,posaconazole,Antifungal Therapeutics
+41,Sarcomatex,sunitinib,Multikinase Oncology
+42,Ventricuguard,digoxin-beta-blocker,Cardiac Glycoside Labs
+43,Parkinsontrol,levodopa-carbidopa,Movement Neurology
+44,Suppressmed,mycophenolate-mofetil,Immunosuppression Pharma
+45,Glomerex,finerenone,Renal Endocrinology
+46,Emphysemax,formoterol-budesonide,Obstructive Airway Group
+47,Celiacure,larazotide-acetate,Mucosal Health Pharma
+48,Tubercustat,isoniazid-rifampicin,Mycobacterial Treatment
+49,Lymphoscan,brentuximab vedotin,Hematologic Oncology
+50,Coronastat,clopidogrel-aspirin,Antiplatelet Therapeutics
