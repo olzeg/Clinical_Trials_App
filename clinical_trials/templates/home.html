@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-    <title>Clinical Trials</title>
+    <meta charset="UTF-8">
+    <title>Strona główna</title>
 </head>
 <body>
+    <h1>System badań klinicznych</h1>
 
-<h1>Clinical Trials Database - widok Home</h1>
-<p>Aplikacja do zarządzania badaniami klinicznymi.</p>
-
+    <ul>
+        <li><a href="{% url 'add_patient' %}">Dodaj pacjenta</a></li>
+        <li><a href="{% url 'patient_list' %}">Lista pacjentów</a></li>
+    </ul>
 </body>
 </html>

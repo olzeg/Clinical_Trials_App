@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista pacjentów</title>
+</head>
+<body>
+    <h1>Lista pacjentów</h1>
+
+    {% if patients %}
+        <ul>
+            {% for patient in patients %}
+                <li>{{ patient }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Brak pacjentów w bazie.</p>
+    {% endif %}
+
+    <a href="{% url 'add_patient' %}">Dodaj nowego pacjenta</a>
+    <br>
+    <a href="{% url 'home' %}">Powrót do strony głównej</a>
+</body>
+</html>
