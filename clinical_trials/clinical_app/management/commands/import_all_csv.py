@@ -50,6 +50,19 @@ class Command(BaseCommand):
             return None
         return Decimal(str(value).replace(",", ".").strip())
 
+    def parse_gender(self, value):
+        if value is None:
+            raise ValueError("Brak wartości płci w CSV")
+
+        value = str(value).strip().upper()
+
+        if value in ["F", "FEMALE", "K", "KOBIETA"]:
+            return "F"
+        if value in ["M", "MALE", "MEZCZYZNA", "MĘŻCZYZNA"]:
+            return "M"
+
+        raise ValueError(f"Nieprawidłowa wartość gender: {value}")
+
     def import_patients(self, filepath):
         with open(filepath, newline="", encoding="utf-8-sig") as file:
             reader = csv.DictReader(file)
@@ -61,7 +74,7 @@ class Command(BaseCommand):
                         "name": row["name"].strip(),
                         "surname": row["surname"].strip(),
                         "age": int(row["age"]),
-                        "gender": row["gender"].strip(),
+                        "gender": self.parse_gender(row["gender"]),
                         "weight": self.parse_decimal(row["weight"]),
                         "height": self.parse_decimal(row["height"]),
                     },
