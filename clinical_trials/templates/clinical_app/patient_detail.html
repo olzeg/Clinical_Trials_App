@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}{{ patient }}{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3 mb-4">
+    <div>
+        <a href="{% url 'patient_list' %}" class="text-decoration-none small fw-semibold">
+            <i class="fa-solid fa-arrow-left me-2"></i>Back to patients
+        </a>
+        <div class="d-flex align-items-center mt-3">
+            <div class="icon-chip me-3">
+                <i class="fa-solid fa-user-injured"></i>
+            </div>
+            <div>
+                <h1 class="h2 mb-1">{{ patient }}</h1>
+                <p class="text-secondary mb-0">Age {{ patient.age }} | {{ patient.get_gender_display }} patient profile</p>
+            </div>
+        </div>
+    </div>
+    <div class="detail-tag-cluster">
+        <span class="detail-tag">Patient profile</span>
+        <span class="detail-tag">Timeline view</span>
+    </div>
+</div>
+
+<section class="detail-dashboard" data-dashboard data-config-id="patient-dashboard">
+    <div class="row g-4 mb-4">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm detail-surface h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-start gap-3 mb-4">
+                        <div>
+                            <span class="eyebrow">Patient profile</span>
+                            <h2 class="h4 mb-1">Participation overview</h2>
+                            <p class="text-secondary mb-0">Basic measurements, study involvement and registered adverse events.</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-stat-grid" data-stat-grid></div>
+                    <div class="insight-grid mt-4" data-insight-grid></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm detail-surface h-100">
+                <div class="card-body p-4">
+                    <span class="eyebrow">Measurements</span>
+                    <h2 class="h5 mb-3">Vitals</h2>
+                    <dl class="detail-definition-list mb-0">
+                        <div><dt>Age</dt><dd>{{ patient.age }}</dd></div>
+                        <div><dt>Gender</dt><dd>{{ patient.get_gender_display }}</dd></div>
+                        <div><dt>Weight</dt><dd>{{ patient.weight }} kg</dd></div>
+                        <div><dt>Height</dt><dd>{{ patient.height }} cm</dd></div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-xl-7">
+            <div class="card border-0 shadow-sm detail-surface h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+                        <div>
+                            <span class="eyebrow">Study assignments</span>
+                            <h2 class="h4 mb-1">Current and past trial links</h2>
+                            <p class="text-secondary mb-0">Shows which trial and drug are connected to this patient.</p>
+                        </div>
+                        <span class="detail-tag">{{ participations|length }} records</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-middle detail-table mb-0">
+                            <thead>
+                                <tr><th>Trial</th><th>Drug</th><th>Dose</th><th>Inclusion date</th></tr>
+                            </thead>
+                            <tbody>
+                                {% for participation in participations %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'clinical_trial_detail' participation.trial.pk %}" class="detail-link">
+                                            {{ participation.trial.name }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'drug_detail' participation.drug.pk %}" class="detail-link">
+                                            {{ participation.drug.name }}
+                                        </a>
+                                    </td>
+                                    <td>{{ participation.dose }}</td>
+                                    <td>{{ participation.inclusion_date }}</td>
+                                </tr>
+                                {% empty %}
+                                <tr><td colspan="4" class="text-secondary">No trial participation recorded for this patient.</td></tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5">
+            <div class="card border-0 shadow-sm detail-surface h-100">
+                <div class="card-body p-4">
+                    <span class="eyebrow">Activity timeline</span>
+                    <h2 class="h5 mb-3">Dynamic event feed</h2>
+                    <div class="timeline-list" data-timeline data-scrollable></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sm detail-surface">
+        <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+                <div>
+                    <span class="eyebrow">Side effects</span>
+                    <h2 class="h4 mb-1">Reported adverse events</h2>
+                    <p class="text-secondary mb-0">The patient-level safety summary with trial and drug context.</p>
+                </div>
+                <span class="detail-tag">{{ effects|length }} entries</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-middle detail-table mb-0">
+                    <thead>
+                        <tr><th>Date</th><th>Side effect</th><th>Trial</th><th>Drug</th><th>Grade</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for effect in effects %}
+                        <tr>
+                            <td>{{ effect.date_of_occurrence }}</td>
+                            <td>{{ effect.side_effect.name }}</td>
+                            <td>
+                                <a href="{% url 'clinical_trial_detail' effect.trial.pk %}" class="detail-link">
+                                    {{ effect.trial.name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'drug_detail' effect.drug.pk %}" class="detail-link">
+                                    {{ effect.drug.name }}
+                                </a>
+                            </td>
+                            <td>{{ effect.grade }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="5" class="text-secondary">No adverse events recorded for this patient.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ dashboard_data|json_script:"patient-dashboard" }}
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Data Guide{% endblock %}
+
+{% block content %}
+<section class="mb-4">
+    <h1 class="h2 mb-2">Data guide</h1>
+    <p class="text-secondary mb-0">
+        This page explains the main labels used in the database:
+        trial categories, phases, statuses, side effect categories, and adverse event grades.
+    </p>
+</section>
+
+<section class="row g-4">
+    {% for section in guide_sections %}
+    <div class="col-md-6">
+        <div class="card h-100 border-0 shadow-sm section-card">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-chip me-3">
+                        <i class="fa-solid {{ section.icon }}"></i>
+                    </div>
+                    <h2 class="h5 mb-0">{{ section.title }}</h2>
+                </div>
+                <p class="text-secondary">{{ section.description }}</p>
+
+                {% if section.details %}
+                <div class="d-grid gap-2">
+                    {% for item in section.details %}
+                    <div class="rounded-3 border p-3 bg-light-subtle">
+                        <div class="fw-semibold">{{ item.label }}</div>
+                        <div class="text-secondary small">{{ item.text }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<section class="mt-4">
+    <a href="{% url 'edit_database' %}" class="btn btn-primary">
+        <i class="fa-solid fa-pen-to-square me-2"></i>Go to edit database
+    </a>
+</section>
+{% endblock %}

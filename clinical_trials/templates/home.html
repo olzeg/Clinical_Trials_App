@@ -1,15 +1,93 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>Strona główna</title>
-</head>
-<body>
-    <h1>System badań klinicznych</h1>
+{% extends "base.html" %}
 
-    <ul>
-        <li><a href="{% url 'add_patient' %}">Dodaj pacjenta</a></li>
-        <li><a href="{% url 'patient_list' %}">Lista pacjentów</a></li>
-    </ul>
-</body>
-</html>
+{% block title %}Overview{% endblock %}
+
+{% block content %}
+<section class="hero-panel rounded-4 p-4 p-lg-5 shadow-sm mb-4">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+            <span class="badge hero-badge mb-3">Clinical Trials Overview</span>
+            <h1 class="display-5 fw-bold mb-3">System overview</h1>
+            <p class="lead mb-4 text-white-50">
+                Quick summary of patients, drugs, trials, participations and safety reports.
+            </p>
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="{% url 'edit_database' %}" class="btn btn-light btn-lg text-primary-emphasis">
+                    <i class="fa-solid fa-database me-2"></i>Edit database
+                </a>
+                <a href="{% url 'data_guide' %}" class="btn btn-outline-light btn-lg">
+                    <i class="fa-solid fa-circle-info me-2"></i>Data guide
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="hero-card rounded-4 p-4">
+                <span class="d-block text-white-50 small text-uppercase fw-semibold mb-2">Trial status</span>
+                <div class="home-status-list">
+                    {% for status in trial_status_cards %}
+                    <div class="home-status-row">
+                        <span class="status-dot status-dot-{{ status.tone }}" title="{{ status.label }}"></span>
+                        <span>{{ status.label }}</span>
+                        <strong>{{ status.value }}</strong>
+                    </div>
+                    {% endfor %}
+                </div>
+                <p class="mb-0 mt-3 text-white-50 small">
+                    Completed trials: {{ completed_trials }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mb-3">
+    <h2 class="h4 mb-3">Main statistics</h2>
+    <div class="row g-4">
+        {% for stat in dashboard_stats %}
+        <div class="col-md-6 col-xl-4">
+            <a href="{% url stat.url_name %}" class="card h-100 border-0 shadow-sm section-card text-decoration-none text-body" data-animate>
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="icon-chip me-3">
+                            <i class="fa-solid {{ stat.icon }}"></i>
+                        </div>
+                        <h3 class="h5 mb-0">{{ stat.label }}</h3>
+                    </div>
+                    <div class="rounded-3 border p-3 bg-light-subtle">
+                        <div class="home-stat-value">{{ stat.value }}</div>
+                        <div class="text-secondary small">{{ stat.note }}</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="home-overview-grid mb-4">
+    <section class="card border-0 shadow-sm detail-surface h-100">
+        <div class="card-body p-4">
+            <span class="eyebrow">Latest reports</span>
+            <h2 class="h5 mb-3">Recent adverse events</h2>
+            <div class="timeline-list timeline-list-compact" data-scrollable>
+                {% for event in recent_events %}
+                <div class="timeline-entry alert">
+                    <span class="timeline-date">{{ event.date_of_occurrence }}</span>
+                    <span class="timeline-title">{{ event.side_effect.name }}</span>
+                    <span class="timeline-meta">
+                        {{ event.patient }} | {{ event.drug.name }} | grade {{ event.grade }}
+                    </span>
+                </div>
+                {% empty %}
+                <div class="text-center py-4">
+                    <div class="icon-chip mx-auto mb-3">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <p class="text-secondary mb-0">No adverse events have been reported yet.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}

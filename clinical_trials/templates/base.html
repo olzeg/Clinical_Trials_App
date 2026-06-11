@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Clinical Trials{% endblock %} | Clinical Trials</title>
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesomefree/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}?v=8">
+</head>
+<body class="app-shell">
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-semibold" href="{% url 'home' %}">
+                <i class="fa-solid fa-flask-vial me-2"></i>Clinical Trials
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link" href="{% url 'drug_list' %}">Drugs</a>
+                    <a class="nav-link" href="{% url 'patient_list' %}">Patients</a>
+                    <a class="nav-link" href="{% url 'clinical_trial_list' %}">Trials</a>
+                    {% if user.is_authenticated %}
+                    <span class="navbar-text text-white-50 small ms-lg-2">
+                        <i class="fa-solid fa-user-shield me-1"></i>{{ user.username }}
+                    </span>
+                    <form method="post" action="{% url 'logout' %}" class="d-inline ms-lg-1">
+                        {% csrf_token %}
+                        <button type="submit" class="btn nav-menu-button" aria-label="Sign out">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </button>
+                    </form>
+                    {% endif %}
+                    <div class="dropdown ms-lg-2">
+                        <button class="btn nav-menu-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                            <li>
+                                <a class="dropdown-item" href="{% url 'data_guide' %}">
+                                    <i class="fa-solid fa-circle-info me-2"></i>Data guide
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'data_tools' %}">
+                                    <i class="fa-solid fa-file-arrow-up me-2"></i>Data tools
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'edit_database' %}">
+                                    <i class="fa-solid fa-pen-to-square me-2"></i>Edit database
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4 py-lg-5">
+        {% if messages %}
+        <div class="mb-4">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags|default:'info' }} mb-2" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}?v=6"></script>
+</body>
+</html>

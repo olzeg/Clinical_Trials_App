@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Data Tools{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3 mb-4">
+    <div class="d-flex align-items-center">
+        <div class="icon-chip me-3">
+            <i class="fa-solid fa-file-export"></i>
+        </div>
+        <div>
+            <h1 class="h2 mb-1">Data tools</h1>
+            <p class="text-secondary mb-0">
+                Export selected records, view generated graphics and extract data from uploaded text files.
+            </p>
+        </div>
+    </div>
+    <a href="{% url 'home' %}" class="btn btn-outline-secondary">
+        <i class="fa-solid fa-house me-2"></i>Home
+    </a>
+</div>
+
+<section class="row g-4 mb-4">
+    <div class="col-lg-6">
+        <div class="card h-100 border-0 shadow-sm detail-surface">
+            <div class="card-body p-4">
+                <span class="eyebrow">Export</span>
+                <h2 class="h5 mb-3">Patient participation CSV</h2>
+                <p class="text-secondary">
+                    Download a CSV file with patients, trials, drugs, doses and inclusion dates.
+                </p>
+                <a href="{% url 'export_patient_participations' %}" class="btn btn-primary">
+                    <i class="fa-solid fa-download me-2"></i>Download CSV
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card h-100 border-0 shadow-sm detail-surface">
+            <div class="card-body p-4">
+                <span class="eyebrow">Dynamic graphic</span>
+                <h2 class="h5 mb-3">Trial status chart</h2>
+                <div class="dynamic-chart-frame mb-3">
+                    <img src="{% url 'trial_status_chart_svg' %}" class="img-fluid" alt="Clinical trial status chart">
+                </div>
+                <a href="{% url 'trial_status_chart_svg' %}" class="btn btn-outline-secondary">
+                    <i class="fa-solid fa-chart-simple me-2"></i>Open SVG
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="card border-0 shadow-sm detail-surface">
+    <div class="card-body p-4">
+        <span class="eyebrow">Upload</span>
+        <h2 class="h5 mb-3">Extract patient data from a file</h2>
+        <form method="post" enctype="multipart/form-data" class="row g-3 align-items-end mb-4">
+            {% csrf_token %}
+            <div class="col-lg-6">
+                <label class="form-label" for="{{ form.data_file.id_for_label }}">{{ form.data_file.label }}</label>
+                {{ form.data_file }}
+                {% if form.data_file.help_text %}
+                <div class="form-text">{{ form.data_file.help_text }}</div>
+                {% endif %}
+                {% for error in form.data_file.errors %}
+                <div class="text-danger small mt-1">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="col-lg-4">
+                <div class="form-check upload-check">
+                    {{ form.import_patients }}
+                    <label class="form-check-label" for="{{ form.import_patients.id_for_label }}">
+                        {{ form.import_patients.label }}
+                    </label>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="fa-solid fa-file-import me-2"></i>Process
+                </button>
+            </div>
+            {% if form.non_field_errors %}
+            <div class="col-12 text-danger">
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+        </form>
+
+        {% if total_rows %}
+        <div class="list-counter-panel mb-3">
+            <span class="small text-uppercase text-secondary d-block">File processed</span>
+            <strong>{{ uploaded_filename }}</strong>
+            <span class="d-block text-secondary">
+                Rows found: {{ total_rows }}{% if created_count %}, imported: {{ created_count }}{% endif %}
+            </span>
+        </div>
+        <div class="table-responsive">
+            <table class="table detail-table align-middle">
+                <thead>
+                    <tr>
+                        <th>Row</th>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Weight</th>
+                        <th>Height</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in extracted_rows %}
+                    <tr>
+                        <td>{{ row.row_number }}</td>
+                        <td>{{ row.data.name }}</td>
+                        <td>{{ row.data.surname }}</td>
+                        <td>{{ row.data.age }}</td>
+                        <td>{{ row.data.gender }}</td>
+                        <td>{{ row.data.weight }}</td>
+                        <td>{{ row.data.height }}</td>
+                        <td>
+                            {% if row.is_valid %}
+                            <span class="badge text-bg-success">{{ row.status }}</span>
+                            {% else %}
+                            <span class="badge text-bg-warning">{{ row.status }}</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if total_rows > preview_limit %}
+        <p class="text-secondary mb-0">Showing first {{ preview_limit }} rows.</p>
+        {% endif %}
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

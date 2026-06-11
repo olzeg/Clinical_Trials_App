@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}{{ trial.name }}{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3 mb-4">
+    <div>
+        <a href="{% url 'clinical_trial_list' %}" class="text-decoration-none small fw-semibold">
+            <i class="fa-solid fa-arrow-left me-2"></i>Back to trials
+        </a>
+        <div class="d-flex align-items-center mt-3">
+            <div class="icon-chip me-3">
+                <i class="fa-solid fa-flask-vial"></i>
+            </div>
+            <div>
+                <h1 class="h2 mb-1">{{ trial.name }}</h1>
+                <p class="text-secondary mb-0">{{ trial.get_phase_display }} | {{ trial.get_status_display }} | {{ trial.category }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="detail-tag-cluster">
+        <span class="detail-tag">Trial profile</span>
+        <span class="detail-tag">Outcome monitoring</span>
+    </div>
+</div>
+
+<section class="detail-dashboard" data-dashboard data-config-id="trial-dashboard">
+    <div class="row g-4 mb-4">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm detail-surface h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-start gap-3 mb-4">
+                        <div>
+                            <span class="eyebrow">Trial profile</span>
+                            <h2 class="h4 mb-1">Study dashboard</h2>
+                            <p class="text-secondary mb-0">Status, participants, used drugs and the latest adverse-event reports.</p>
+                        </div>
+                        <div
+                            class="status-dot status-dot-{{ dashboard_data.statusBadge.tone }}"
+                            title="Status: {{ dashboard_data.statusBadge.label }}"
+                            aria-label="Status: {{ dashboard_data.statusBadge.label }}"
+                        ></div>
+                    </div>
+                    <div class="dashboard-stat-grid" data-stat-grid></div>
+                    <div class="insight-grid mt-4" data-insight-grid></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm detail-surface h-100">
+                <div class="card-body p-4">
+                    <span class="eyebrow">Study facts</span>
+                    <h2 class="h5 mb-3">Clinical trial card</h2>
+                    <dl class="detail-definition-list mb-0">
+                        <div><dt>Name</dt><dd>{{ trial.name }}</dd></div>
+                        <div><dt>Phase</dt><dd>{{ trial.get_phase_display }}</dd></div>
+                        <div><dt>Condition</dt><dd>{{ trial.category }}</dd></div>
+                        <div><dt>Duration</dt><dd>{{ trial.beginning_date }} - {{ trial.end_date|default:"ongoing" }}</dd></div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-xl-8">
+            <div class="card border-0 shadow-sm detail-surface h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
+                        <div>
+                            <span class="eyebrow">Interactive chart</span>
+                            <h2 class="h4 mb-1">Adverse event distribution</h2>
+                            <p class="text-secondary mb-0">Donut chart with broader filters across trial, drug and patient dimensions.</p>
+                        </div>
+                        <div class="d-flex gap-2 flex-wrap align-items-end">
+                            <div>
+                                <label class="form-label small text-secondary mb-1">Group by</label>
+                                <select class="form-select dashboard-control" data-chart-group>
+                                    {% for option in dashboard_data.chart.groupOptions %}
+                                    <option value="{{ option.id }}" {% if option.id == dashboard_data.chart.defaultGroup %}selected{% endif %}>{{ option.label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-filter-grid mb-3" data-filter-grid>
+                        {% for filter in dashboard_data.chart.filters %}
+                        <div>
+                            <label class="form-label small text-secondary mb-1">{{ filter.label }}</label>
+                            <select class="form-select" data-filter-id="{{ filter.id }}">
+                                {% for option in filter.options %}
+                                <option value="{{ option.id }}">{{ option.label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="chart-summary mb-3" data-chart-summary></div>
+                    <div class="interactive-chart" data-chart></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="card border-0 shadow-sm detail-surface">
+                <div class="card-body p-4">
+                    <span class="eyebrow">Latest events</span>
+                    <h2 class="h5 mb-3">Monitoring feed</h2>
+                    <div class="timeline-list timeline-list-compact" data-timeline data-scrollable></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sm detail-surface">
+        <div class="card-body p-4">
+            <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-3">
+                <div>
+                    <span class="eyebrow">Linked treatment data</span>
+                    <h2 class="h4 mb-1">Patients and drugs</h2>
+                    <p class="text-secondary mb-0">Which patients are enrolled and what drug they receive in this trial.</p>
+                </div>
+                <span class="detail-tag">{{ participations|length }} participation entries</span>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-middle detail-table mb-0">
+                    <thead>
+                        <tr><th>Patient</th><th>Drug</th><th>Dose</th><th>Inclusion date</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for participation in participations %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'patient_detail' participation.patient.pk %}" class="detail-link">
+                                    {{ participation.patient }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'drug_detail' participation.drug.pk %}" class="detail-link">
+                                    {{ participation.drug.name }}
+                                </a>
+                            </td>
+                            <td>{{ participation.dose }}</td>
+                            <td>{{ participation.inclusion_date }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="4" class="text-secondary">No participations linked to this trial.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ dashboard_data|json_script:"trial-dashboard" }}
+{% endblock %}

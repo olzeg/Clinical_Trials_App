@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Database{% endblock %}
+
+{% block content %}
+<section class="mb-4">
+    <h1 class="h2 mb-2">Edit database</h1>
+    <p class="text-secondary mb-0">
+        Choose the model you want to open. Each section links to the add form
+        and to the list of existing records.
+    </p>
+</section>
+
+<section class="row g-4">
+    {% for section in sections %}
+    <div class="col-md-6 col-xl-4">
+        <div class="card h-100 border-0 shadow-sm section-card">
+            <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-chip me-3">
+                        <i class="fa-solid {{ section.icon }}"></i>
+                    </div>
+                    <h2 class="h5 mb-0">{{ section.title_plural }}</h2>
+                </div>
+                <p class="text-secondary flex-grow-1">
+                    Open the create form or view the saved records list.
+                </p>
+                <div class="d-flex gap-2 flex-wrap">
+                    <a href="{% url section.add_url_name %}" class="btn btn-primary">
+                        <i class="fa-solid fa-plus me-2"></i>Form
+                    </a>
+                    <a href="{% url section.list_url_name %}" class="btn btn-outline-secondary">
+                        <i class="fa-solid fa-table-list me-2"></i>List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

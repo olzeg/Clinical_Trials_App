@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Create account{% endblock %}
+
+{% block content %}
+<section class="auth-shell">
+    <div class="auth-panel shadow-sm">
+        <div class="auth-heading">
+            <span class="icon-chip mb-3">
+                <i class="fa-solid fa-user-plus"></i>
+            </span>
+            <h1 class="h3 mb-2">Create account</h1>
+            <p class="text-secondary mb-0">Use a strong password. Django will validate and hash it automatically.</p>
+        </div>
+
+        <form method="post" novalidate>
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="mb-3">
+                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                <div class="form-text">{{ field.help_text }}</div>
+                {% endif %}
+                {% for error in field.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+                {% for error in form.non_field_errors %}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="fa-solid fa-user-check me-2"></i>Create account
+            </button>
+        </form>
+
+        <div class="auth-footer">
+            <span class="text-secondary">Already have an account?</span>
+            <a href="{% url 'login' %}">Sign in</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
